@@ -1,0 +1,87 @@
+'''
+ @LuisC. Alias: KingDam47
+     
+                 EJERCICIO:
+  - Crea ejemplos de funciones básicas que representen las diferentes
+     posibilidades del lenguaje:
+     Sin parámetros ni retorno, con uno o varios parámetros, con retorno...
+  - Comprueba si puedes crear funciones dentro de funciones.
+  - Utiliza algún ejemplo de funciones ya creadas en el lenguaje.
+  - Pon a prueba el concepto de variable LOCAL y GLOBAL.
+  - Debes hacer print por consola del resultado de todos los ejemplos.
+    (y tener en cuenta que cada lenguaje puede poseer más o menos posibilidades)
+'''
+
+def Saludo():  #funcion sin parametros
+    print("Buenos dias querido usuario!! :) ")
+Saludo()
+
+
+def presentar_persona(nombre: str, edad: int):  #funcion con 2 parametros
+    print(f"Te presento a {nombre}, que tiene {edad} años.")
+presentar_persona("Luis Angel", 30)
+
+
+def duplicar_numero(numero):  #funcion con parametro y retorno.
+    return numero * 2
+resultado = duplicar_numero(5) #aqui se aplica la funcion
+print(f"El doble de 5 es {resultado}.")
+
+
+def saludo_extendido(nombre, apellido): #es posible crear funcion dentro de funcion.
+    def obtener_saludo():
+        return f"¡Hola, {nombre} {apellido}! Bienvenido a nuestro programa."
+
+    mensaje = obtener_saludo()
+    print(mensaje)
+saludo_extendido("Angel","Sosa")
+
+
+string = "hoLa MuNdo, TODO Bien?"
+print (string.lower())  #funcion lower() ya esta definida en el lenguaje, vuelve minusculas toda la string.
+
+
+
+# prueba de variable local y variable global
+
+Mensaje_global = "Saludos desde la cima!!"
+def imprimir_mensaje_global():
+    print(Mensaje_global)   #dentro de esta funcion y cualquier otra, es posible usar esta varibale ya que                               
+imprimir_mensaje_global()   #fue definida fuera de cualquier funcion por lo tanto es una variable global.
+
+
+def imprimir_mensaje_local():
+    mensaje_local = "estoy dentro de una funcion!!"
+    return mensaje_local
+#print(mensaje_local) \\\ este comando daria error, ya que estamos llamando una variable local ubicada dentro
+#                     \\\ de la funcion imprimir_mensaje_local y esta solo puede ser usada EN la funcion.   
+
+
+
+
+'''      DIFICULTAD EXTRA (opcional):
+  Crea una función que reciba dos parámetros de tipo cadena de texto y retorne un número.
+  - La función imprime todos los números del 1 al 100. Teniendo en cuenta que:
+    - Si el número es múltiplo de 3, muestra la cadena de texto del primer parámetro.
+    - Si el número es múltiplo de 5, muestra la cadena de texto del segundo parámetro.
+    - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
+    - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
+'''
+
+def Textos_o_Numeros(prmt1: str,prmt2:str) -> int:
+    count = 0
+    for numero in range (1,101):
+        if numero%3 == 0 and numero%5 == 0:
+            print(prmt1 + prmt2)
+        elif numero%3 == 0:
+            print(prmt1)
+        elif numero%5 == 0:
+             print(prmt2)
+        else:
+            print(numero)
+            count += 1
+    return count
+    
+resultado = Textos_o_Numeros("Fizz","Buzz")
+print(f"Numero de veces que no salio string ==> {resultado}")
+
