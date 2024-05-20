@@ -1,0 +1,122 @@
+'''
+ @LuisC. Alias: KingDam47
+ *           EJERCICIO:
+ * - Crea ejemplos utilizando todos los tipos de operadores de tu lenguaje:
+ *   Aritméticos, lógicos, de comparación, asignación, identidad, pertenencia, bits...
+ *   (Ten en cuenta que cada lenguaje puede poseer unos diferentes)
+ * - Utilizando las operaciones con operadores que tú quieras, crea ejemplos
+ *   que representen todos los tipos de estructuras de control que existan
+ *   en tu lenguaje:
+ *   Condicionales, iterativas, excepciones...
+ * - Debes hacer print por consola del resultado de todos los ejemplos.
+ *
+ * DIFICULTAD EXTRA (opcional):
+ * Crea un programa que imprima por consola todos los números comprendidos
+ * entre 10 y 55 (incluidos), pares, y que no son ni el 16 ni múltiplos de 3.
+ *
+ * Seguro que al revisar detenidamente las posibilidades has descubierto algo nuevo.
+ '''
+
+#Operadores aritmeticos:
+suma = 1 + 1
+resta = 1 - 1
+multiplicacion = 1 * 1
+division = 1 / 1
+division_entera = 1 // 1
+potenciacion = 1 ** 1
+Resto = 1 % 1
+
+#Operadores Relacionales:
+'''
+     mayor que:           >
+     menor que:          <
+     igual que:          ==
+     mayor o igual que:  >=
+     menor o igual que:  <=
+     diferente que:      !=
+'''
+    
+#Operadores Logicos:
+'''
+     y .... and
+     o .... or
+     no ... not
+'''
+
+#Operadores de pertenencia:    
+#Un operador de pertenencia se usa para identificar pertenencia en alguna secuencia (listas, strings, tuplas).
+'''
+in .... devuelve True si el valor especificado SE encuentra en la secuencia.
+         En caso contrario devuelve False.
+
+not in .... devuelve True si el valor especificado NO se encuentra en la secuencia. 
+         En caso contrario devuelve False.
+
+'''
+
+#Operadores de identidad:
+#Un operador de identidad se emplea para comprobar si dos variables emplean la misma ubicación en memoria.
+'''
+is ... devuelve True si los operandos se refieren al mismo objeto. 
+         En caso contrario devuelve False.
+
+is not ... devuelve True si los operandos no se refieren al mismo objeto. 
+         En caso contrario devuelve False.
+
+'''
+
+#Operadores de asignacion:
+''' suponiendo una variable a y un valor cualquiera.
+
++=	   a += 5 es equivalente a     a = a + 5
+-=	   a -= 5 es equivalente a     a = a - 5
+*=	   a *= 3 es equivalente a     a = a * 3
+/=     a /= 3 es equivalente a     a = a / 3
+%=	   a %= 3 es equivalente a     a = a % 3
+**=	   a **= 3 es equivalente a    a = a ** 3
+//=	   a //= 3 es equivalente a    a = a // 3
+&=	   a &= 3 es equivalente a     a = a & 3
+
+'''
+a = 5
+b = 6
+c = 5
+#Estructuras de control
+
+    #Condicional 1
+
+if a == b:
+    print("hola mundo")
+else:
+    print("no")
+
+    #Condicional 2
+if a == c or b != a:
+    print("que buena es la vida!")
+
+    #iterativas..  for  y  while
+for i in range(5):
+    print(i+1) #se suma 1 para que empiece en 1 y acabe justo en el 5
+
+###########################################################################################
+   
+a=10
+while a > 0:
+    print(a)
+    a-=1
+
+    #excepciones..   try
+
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("Error: división entre cero")
+
+
+### Ejercicio Opcional ###
+
+for i in range(10,56):
+    if i % 2 == 0 and i != 16 and i % 3 != 0:
+        print(i)
+    
+    
