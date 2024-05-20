@@ -1,0 +1,41 @@
+
+'''
+#00 Del reto de programacion con python
+https://www.python.org/
+Retroalimentacion 
+ @LuisC. Alias: KingDam47
+'''
+# forma individual/simple de comentarios, arriba la forma de varias lineas.
+
+variable1,Varibale2 = 1,"cadena" #estas son variables. 
+
+CONSTANTE = None #esto es una constante o tambien:
+PI = 3.1416
+
+
+#### Variables de distintos tipos de datos:
+
+    #Numeral (enteros)
+Numero = 10
+
+    #Numeral (Flotante o decimal)
+Numero = 10.5
+
+    #String (cadena de texto)
+Cadena = "Hola Mundo!"
+
+    #Booleano
+Valor1,Valor2 = True,False  
+
+    #Array o lista
+Arreglo = [1,2,3,4,5] #los elementos pueden ser numeros, strings etc...
+
+    #Tuplas
+Tupla = (1,2,3,4,5) #la diferencia de la tupla con los arrays es que la tupla no es modificable.
+
+    #Diccionario
+Diccionario = {"Nombre": "Luis","Edad": 18} 
+print(Diccionario["Edad"]) #forma de mostrar un elemento especifico del diccionario. salida es 18
+ 
+print("!Hola, Python!")
+
