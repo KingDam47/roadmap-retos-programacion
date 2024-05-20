@@ -1,0 +1,227 @@
+
+'''
+ @LuisC. Alias: KingDam47
+ 
+                 EJERCICIO:
+  - Muestra ejemplos de creación de todas las estructuras soportadas por defecto
+    en tu lenguaje.
+  - Utiliza operaciones de inserción, borrado, actualización y ordenación.
+'''
+
+# Creación de una lista
+mi_lista = [1, 3, 5, 7, 9]
+print("Lista original:", mi_lista)
+
+# Inserción
+mi_lista.append(11)
+print("Después de append:", mi_lista)
+
+mi_lista.insert(2, 4)  # Insertar 4 en el índice 2
+print("Después de insert:", mi_lista)
+
+# Borrado
+mi_lista.remove(3)  # Eliminar el primer valor 3
+print("Después de remove:", mi_lista)
+
+del mi_lista[0]  # Eliminar el primer elemento
+print("Después de del:", mi_lista)
+
+# Actualización
+mi_lista[0] = 2
+print("Después de actualizar el primer elemento:", mi_lista)
+
+# Ordenación
+mi_lista.sort()
+print("Lista ordenada:", mi_lista)
+
+
+#############################################################################################
+
+# Creación de una tupla
+mi_tupla = (1, 3, 5, 7, 9)
+print("Tupla original:", mi_tupla)
+
+# Nota: Las tuplas son inmutables, por lo que no se pueden realizar operaciones de inserción, borrado o actualización directamente.
+
+# Ordenación
+# Para ordenar una tupla, primero necesitamos convertirla a una lista
+tupla_ordenada = tuple(sorted(mi_tupla))
+print("Tupla ordenada:", tupla_ordenada)
+
+##############################################################################################
+
+# Creación de un conjunto (SETS)
+
+mi_conjunto = {1, 3, 5, 7, 9}
+print("Conjunto original:", mi_conjunto)
+
+# Inserción
+mi_conjunto.add(11)
+print("Después de add:", mi_conjunto)
+
+# Borrado
+mi_conjunto.remove(5)  # Eliminar el elemento 5
+print("Después de remove:", mi_conjunto)
+
+# Actualización
+mi_conjunto.update([2, 4, 6])  # Añadir varios elementos
+print("Después de update:", mi_conjunto)
+
+# Ordenación
+# Los conjuntos no tienen orden, pero se pueden convertir a una lista para ordenarlos
+conjunto_ordenado = sorted(mi_conjunto)
+print("Conjunto ordenado como lista:", conjunto_ordenado)
+
+###############################################################################################
+
+# Creación de un diccionario
+mi_diccionario = {"a": 1, "b": 3, "c": 5}
+print("Diccionario original:", mi_diccionario)
+
+# Inserción
+mi_diccionario["d"] = 7
+print("Después de insertar:", mi_diccionario)
+
+# Borrado
+del mi_diccionario["b"]  # Eliminar el par clave-valor con clave "b"
+print("Después de borrar:", mi_diccionario)
+
+# Actualización
+mi_diccionario["a"] = 2
+print("Después de actualizar:", mi_diccionario)
+
+# Ordenación
+
+# Para ordenar un diccionario por sus claves:
+diccionario_ordenado = dict(sorted(mi_diccionario.items()))
+print("Diccionario ordenado por clave:", diccionario_ordenado)
+
+# Para ordenar un diccionario por sus valores:
+diccionario_ordenado_por_valor = dict(sorted(mi_diccionario.items(), key=lambda item: item[1]))
+print("Diccionario ordenado por valor:", diccionario_ordenado_por_valor)
+
+
+
+###############################################################################################
+
+''' 
+          DIFICULTAD EXTRA (opcional):
+  Crea una agenda de contactos por terminal.
+  - Debes implementar funcionalidades de búsqueda, inserción, actualización
+    y eliminación de contactos.
+  - Cada contacto debe tener un nombre y un número de teléfono.
+  - El programa solicita en primer lugar cuál es la operación que se quiere realizar,
+    y a continuación los datos necesarios para llevarla a cabo.
+  - El programa no puede dejar introducir números de teléfono no númericos y con más
+    de 11 dígitos (o el número de dígitos que quieras).
+  - También se debe proponer una operación de finalización del programa.
+ '''
+def Agenda_de_contactos():
+    def Salir():
+        decision = input("Desea salir de la agenda? \n 'y' para SI, 'n' para NO: ")
+        if decision == 'y':
+            print("Saliendo de la agenda...")
+            return True
+        elif decision == 'n':
+            return False
+        else:
+            print("Opción inválida. Por favor, elija '1' para SI o '2' para NO.")
+            return False
+    def eliminar_contacto():
+        nombre = input("ingrese el nombre del contacto a eliminar => ")
+        if nombre in Contactos:
+            del Contactos[nombre]
+            print("contacto eliminado exitosamente!!")
+            input()
+            
+        else:
+            print("ese contacto no existe!")
+            input()
+            
+            
+        
+    def actualizar_contacto():
+        nuevo_numero = input("digite el nuevo numero del contacto => ")
+        if nuevo_numero.isdigit() and len(nuevo_numero) > 2 and len(nuevo_numero) <= 11:
+            Contactos[nombre] = nuevo_numero
+            print("se ha actualizado correctamente.")
+            input()
+            
+        else:
+            print("debes introducir un numero de telefono con maximo 11 digitos.")   
+            input()
+            
+            
+    def insertar_contacto():
+        
+        nombre = input("Escriba el nombre del contacto que se agregara: ")
+        if nombre in Contactos:
+          print(" \n ya existe un contacto no este nombre. \n")
+          input()
+        else:
+          numero = input(f"Porfavor digite el telefono => ")
+          if numero.isdigit() and len(numero) > 2 and len(numero) <= 11:
+            Contactos[nombre] = numero
+            print(" \n se ha agregado satisfactoriamente! \n")
+            input()
+          else:
+           print("debes introducir un telefono con maximo 11 digitos y solo valores numericos.")   
+           input()
+            
+                   
+    
+    print("######### Agenda de contactos ######### \n")
+    Contactos = {"mauro monzon": 911,"lit killah": 112}
+    while True:
+       
+        opcion = input("Eliga la opcion que desee: \n 1) Buscar \n 2) insertar \n 3) actualizar \n 4) eliminar\n 5) mostrar contactos \n 6) salir \n")
+        match opcion:
+            case "1":
+                nombre = input("Escriba el nombre de la persona => ")
+                if nombre in Contactos:
+                    print(f"El telefono de {nombre} es: {Contactos[nombre]}")
+                else:
+                    print(" \n ese contacto no existe!! \n ")
+                    input()
+                    
+                                
+            case "2":
+                insertar_contacto()
+               
+            case "3":
+                nombre = input("Escriba el nombre del contacto a actualizar: ")
+                if nombre in Contactos:
+                    actualizar_contacto()
+                else:
+                    print(" \n este contacto no existe!! \n ")
+                    input()
+                    
+
+            case "4":
+                eliminar_contacto()
+
+            case "5":
+                print("\n Lista de contactos: \n")
+                if Contactos:
+                    for nombre,numero in Contactos.items():
+                      print(f"Nombre: {nombre}, Numero: {numero}")
+                    input()
+                else:
+                    print("no hay contactos.")
+                    input()
+                    
+
+            case "6":
+                 if Salir():
+                    break
+                 else:
+                     continue
+            case _:
+                print("Opción inválida. Por favor, elija una opción del 1 al 6.")
+                input()
+                
+           
+                
+                
+Agenda_de_contactos()
+        
